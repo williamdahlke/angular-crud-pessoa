@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pessoas</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th class="text-center">
+                        <a [routerLink]="['/pessoas/novo']" href="#" title="Novo" alt="Novo" class="btn btn-x btn-success">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Novo
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pessoa of pessoas">
+                    <td>{{pessoa.nome}}</td>
+                    <td>{{pessoa.idade}}</td>
+                    <td class="text-center" style="width: 300px;">
+                        <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                            <i class="fa fa-edit" aria-hidden="true"></i>Editar
+                        </a>                        
+                        <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" style="margin: 1%;">
+                            <i class="fa fa-times" aria-hidden="true"></i>Remover
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p *ngIf="pessoas.length===0">Nenhuma pessoa cadastrada</p>
+    </body>
+</html>
