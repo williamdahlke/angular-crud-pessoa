@@ -19,12 +19,6 @@ export class ListarPessoaComponent implements OnInit{
   pessoas : Pessoa[] = [];
 
   listarPessoas() : Pessoa[]{
-    return [
-      new Pessoa(1, "Razer", 22),
-      new Pessoa(1, "Brunna", 55),
-      new Pessoa(1, "Guilherme", 33),
-      new Pessoa(1, "Juan", 88)
-    ];
-    //return this.pessoaService.listarTodos();
+    return this.pessoaService.listarTodos();
   }
 }
