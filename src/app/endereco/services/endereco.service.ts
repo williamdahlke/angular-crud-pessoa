@@ -22,7 +22,7 @@ export class EnderecoService {
 
   remover(id : number){
     let enderecos = this.listarTodos();
-    enderecos = enderecos.filter(x=> x.id == id);
+    enderecos = enderecos.filter(x=> x.id !== id);
     localStorage[LS_CHAVE] = enderecos;
   }
 

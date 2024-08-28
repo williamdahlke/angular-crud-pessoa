@@ -13,13 +13,21 @@ export class ListarEnderecoComponent implements OnInit{
               private router : Router){}
 
   ngOnInit(): void {
-    this.enderecos = this.listarTodos();
+    this.enderecos = this.listarEnderecos();
   }
 
   enderecos : Endereco[] = [];
 
-  listarTodos() : Endereco[]{
+  listarEnderecos() : Endereco[]{
     return this.service.listarTodos();
+  }
+
+  remover($event : any, endereco : Endereco) {
+    $event.preventDefault();
+    if (confirm(`Deseja realmente remover o endereço ${endereco.rua} da cidade ${endereco.cidade} e estado ${endereco.estado}?`)){
+      this.service.remover(endereco.id!);
+      this.enderecos = this.listarEnderecos();
+    }
   }
   
 }

@@ -19,11 +19,11 @@ const routes: Routes = [
     component: InserirPessoaComponent},
   { path: 'pessoas/editar/:id',
     component: EditarPessoaComponent},
-  { path: 'endereco/listar',
+  { path: 'enderecos/listar',
     component: ListarEnderecoComponent},
-  { path: 'endereco/novo',
+  { path: 'enderecos/novo',
     component: InserirEnderecoComponent},
-  { path: 'endereco/editar/:id',
+  { path: 'enderecos/editar/:id',
     component: EditarEnderecoComponent}
 ];
 
