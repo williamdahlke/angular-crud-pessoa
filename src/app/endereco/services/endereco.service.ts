@@ -15,19 +15,20 @@ export class EnderecoService {
     return enderecos ? JSON.parse(enderecos) : [];
   }
 
+  inserir(endereco : Endereco){
+    const enderecos = this.listarTodos();
+    endereco.id = new Date().getTime();
+    enderecos.push(endereco);
+    localStorage[LS_CHAVE] = JSON.stringify(enderecos);
+  }
+
   buscarPorId(id : number){
     const enderecos = this.listarTodos();
     return enderecos.find(endereco => endereco.id == id);
   }
 
-  remover(id : number){
-    let enderecos = this.listarTodos();
-    enderecos = enderecos.filter(x=> x.id !== id);
-    localStorage[LS_CHAVE] = enderecos;
-  }
-
   alterar(endereco : Endereco){
-    let enderecos = this.listarTodos();
+    const enderecos = this.listarTodos();
 
     enderecos.forEach( (obj, index, objs) => {
       if (endereco.id === obj.id){
@@ -35,12 +36,11 @@ export class EnderecoService {
       }
     })
     localStorage[LS_CHAVE] = JSON.stringify(enderecos);      
-  }
+  }  
 
-  inserir(endereco : Endereco){
-    const enderecos = this.listarTodos();
-    endereco.id = new Date().getTime();
-    enderecos.push(endereco);
+  remover(id : number){
+    let enderecos = this.listarTodos();
+    enderecos = enderecos.filter(x=> x.id !== id);
     localStorage[LS_CHAVE] = JSON.stringify(enderecos);
   }
 }

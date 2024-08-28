@@ -21,7 +21,7 @@ export class EditarEnderecoComponent implements OnInit {
       this.endereco = res;
     } 
     else{
-      throw new Error("Pessoa não encontrada: id = " + id);
+      throw new Error("Endereço não encontrado: id = " + id);
     }
   }
 

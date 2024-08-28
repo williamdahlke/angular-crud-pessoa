@@ -6,6 +6,9 @@ import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.comp
 import { EditarEnderecoComponent } from './endereco/editar-endereco/editar-endereco.component';
 import { InserirEnderecoComponent } from './endereco/inserir-endereco/inserir-endereco.component';
 import { ListarEnderecoComponent } from './endereco/listar-endereco/listar-endereco.component';
+import { ListarCidadeComponent } from './cidade/listar-cidade/listar-cidade.component';
+import { InserirCidadeComponent } from './cidade/inserir-cidade/inserir-cidade.component';
+import { EditarCidadeComponent } from './cidade/editar-cidade/editar-cidade.component';
 
 const routes: Routes = [
   { path: '',
@@ -24,7 +27,13 @@ const routes: Routes = [
   { path: 'enderecos/novo',
     component: InserirEnderecoComponent},
   { path: 'enderecos/editar/:id',
-    component: EditarEnderecoComponent}
+    component: EditarEnderecoComponent},
+  { path: 'cidades/listar',
+    component: ListarCidadeComponent},
+  { path: 'cidades/novo',
+    component: InserirCidadeComponent},
+  { path: 'cidades/editar/:id',
+    component: EditarCidadeComponent}
 ];
 
 @NgModule({
