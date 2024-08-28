@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CidadeService } from '../services/cidade.service';
-import { Cidade } from '../../cidade.model';
+import { Cidade } from '../../shared/models/cidade.model';
 
 @Component({
   selector: 'app-listar-cidade',

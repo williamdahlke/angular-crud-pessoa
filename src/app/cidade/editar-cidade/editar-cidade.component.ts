@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { CidadeService } from '../services/cidade.service';
-import { Cidade } from '../../cidade.model';
+import { Cidade } from '../../shared/models/cidade.model';
 
 @Component({
   selector: 'app-editar-cidade',
@@ -21,7 +21,7 @@ export class EditarCidadeComponent implements OnInit {
       this.cidade = res;
     } 
     else{
-      throw new Error("Endereço não encontrado: id = " + id);
+      throw new Error("Cidade não encontrada: id = " + id);
     }
   }
 

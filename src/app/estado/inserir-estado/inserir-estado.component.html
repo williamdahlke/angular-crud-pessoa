@@ -5,13 +5,13 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h1>Nova Cidade</h1>
+        <h1>Novo Estado</h1>
         <div class="well">
-            <form #formCidade="ngForm">
+            <form #formEstado="ngForm">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" class="form-control" id="nome" 
-                           [(ngModel)]="cidade.nome" #nome="ngModel"
+                           [(ngModel)]="estado.nome" #nome="ngModel"
                            name="nome" minlength="2" required>
                     <div class="alert alert-danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
                         <div [hidden]="!nome.errors['required']">Digite o nome da cidade.</div>
@@ -20,23 +20,23 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="estado">Estado:</label>
+                    <label for="estado">Sigla:</label>
                     <input type="text" class="form-control" id="estado" name="estado" 
-                           [(ngModel)]="cidade.estado"
-                           #estado="ngModel"
+                           [(ngModel)]="estado.sigla"
+                           #sigla="ngModel"
                            required>
-                    <div *ngIf="estado.errors && (estado.dirty || estado.touched)" class="alert alert-danger">
-                        <div [hidden]="!estado.errors['required']">Digite o estado.</div>
+                    <div *ngIf="sigla.errors && (sigla.dirty || sigla.touched)" class="alert alert-danger">
+                        <div [hidden]="!sigla.errors['required']">Digite a sigla.</div>
                     </div>                    
                 </div>
 
                 <div class="form-group">
                     <button type="button" class="btn btn-primary"
                             (click)="inserir()"
-                            [disabled]="!formCidade.form.valid">
+                            [disabled]="!formEstado.form.valid">
                         <i class="fa fa-save" aria-hidden="true"></i> Salvar
                     </button>
-                    <a class="btn btn-secondary" [routerLink]="['/cidades/listar']" style="margin: 1%;">
+                    <a class="btn btn-secondary" [routerLink]="['/estados/listar']" style="margin: 1%;">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
                     </a>
                 </div>                
