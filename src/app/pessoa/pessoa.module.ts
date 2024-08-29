@@ -9,6 +9,7 @@ import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
 import { NumericoDirective } from '../shared/directives/numerico.directive';
 import { MinimoValidatorDirective } from '../shared/directives/minimo-validator.directive';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { CaixaAltaPipe } from '../shared/pipes/caixa-alta.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     InserirPessoaComponent,
     EditarPessoaComponent,
     NumericoDirective,
-    MinimoValidatorDirective
+    MinimoValidatorDirective,
+    CaixaAltaPipe
   ],
   imports: [
     CommonModule,
