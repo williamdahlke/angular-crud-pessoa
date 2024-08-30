@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadoService } from '../services/estado.service';
-import { Estado } from '../../shared/models/estado.model';
+import { Estado } from '../../shared';
 
 @Component({
   selector: 'app-estado-cidade',

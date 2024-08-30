@@ -7,6 +7,7 @@ import { EstadoService } from './services/estado.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InserirEstadoComponent } from './inserir-estado/inserir-estado.component';
+import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InserirEstadoComponent } from './inserir-estado/inserir-estado.componen
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule    
+    FormsModule,
+    SharedModule    
   ],
   providers: [
     EstadoService

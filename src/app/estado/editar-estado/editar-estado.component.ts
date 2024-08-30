@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { EstadoService } from '../services/estado.service';
-import { Estado } from '../../shared/models/estado.model';
+import { Estado } from '../../shared';
 
 @Component({
   selector: 'app-editar-estado',

@@ -6,6 +6,7 @@ import { EditarEnderecoComponent } from './editar-endereco/editar-endereco.compo
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EnderecoService } from './services/endereco.service';
+import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [  
@@ -16,7 +17,8 @@ import { EnderecoService } from './services/endereco.service';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule    
+    FormsModule, 
+    SharedModule    
   ],
   providers: [
     EnderecoService

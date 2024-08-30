@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Cidade } from '../../shared/models/cidade.model';
+import { Cidade } from '../../shared';
 import { CidadeService } from '../services/cidade.service';
 
 @Component({

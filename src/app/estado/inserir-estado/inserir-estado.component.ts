@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Estado } from '../../shared/models/estado.model';
+import { Estado } from '../../shared';
 import { EstadoService } from '../services/estado.service';
 
 @Component({
