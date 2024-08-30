@@ -10,46 +10,46 @@
             <form #formEndereco="ngForm">
                 <div class="form-group">
                     <label for="rua">Rua:</label>
-                    <input type="text" id="rua" name="rua" [(ngModel)]="endereco.rua" #rua="ngModel" required style="margin: 1%;">
+                    <input type="text" id="rua" name="rua" [(ngModel)]="endereco.rua" #rua="ngModel" required class="form-control">
                     <div class="alert alert-danger" *ngIf="rua.errors && (rua.dirty || rua.touched)">
                         <div [hidden]="!rua.errors['required']">Digite o nome da rua.</div>
                     </div>                    
                 </div>
                 <div class="form-group">
                     <label for="numero">Número:</label>
-                    <input type="number" id="numero" name="numero" [(ngModel)]="endereco.numero" #numero="ngModel" required style="margin: 1%;">
+                    <input type="number" id="numero" name="numero" [(ngModel)]="endereco.numero" #numero="ngModel" required class="form-control">
                     <div class="alert alert-danger" *ngIf="numero.errors && (numero.dirty || numero.touched)">
                         <div [hidden]="!numero.errors['required']">Digite o número da casa.</div>
                     </div>                    
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento:</label>
-                    <input type="text" id="complemento" name="complemento" [(ngModel)]="endereco.complemento" #complemento="ngModel" style="margin: 1%;">
+                    <input type="text" id="complemento" name="complemento" [(ngModel)]="endereco.complemento" #complemento="ngModel" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="bairro" [(ngModel)]="endereco.bairro" #bairro="ngModel" required style="margin: 1%;">
+                    <input type="text" id="bairro" name="bairro" [(ngModel)]="endereco.bairro" #bairro="ngModel" required class="form-control">
                     <div class="alert alert-danger" *ngIf="bairro.errors && (bairro.dirty || bairro.touched)">
                         <div [hidden]="!bairro.errors['required']">Digite o bairro da casa.</div>
                     </div>                    
                 </div>
                 <div class="form-group">
                     <label for="cep">CEP:</label>
-                    <input type="number" id="cep" name="cep" [(ngModel)]="endereco.cep" #cep="ngModel" required style="margin: 1%;">
+                    <input type="number" id="cep" name="cep" [(ngModel)]="endereco.cep" #cep="ngModel" required class="form-control">
                     <div class="alert alert-danger" *ngIf="cep.errors && (cep.dirty || cep.touched)">
                         <div [hidden]="!cep.errors['required']">Digite o cep da casa.</div>
                     </div>                    
                 </div>
                 <div class="form-group">
                     <label for="cidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" [(ngModel)]="endereco.cidade" #cidade="ngModel" required style="margin: 1%;">
+                    <input type="text" id="cidade" name="cidade" [(ngModel)]="endereco.cidade" #cidade="ngModel" required class="form-control">
                     <div class="alert alert-danger" *ngIf="cidade.errors && (cidade.dirty || cidade.touched)">
                         <div [hidden]="!cidade.errors['required']">Digite o nome da cidade da casa.</div>
                     </div>                    
                 </div>
                 <div class="form-group">
                     <label for="estado">Estado:</label>
-                    <input type="text" id="estado" name="estado" [(ngModel)]="endereco.estado" #estado="ngModel" required style="margin: 1%;">
+                    <input type="text" id="estado" name="estado" [(ngModel)]="endereco.estado" #estado="ngModel" required class="form-control">
                     <div class="alert alert-danger" *ngIf="estado.errors && (estado.dirty || estado.touched)">
                         <div [hidden]="!estado.errors['required']">Digite o estado da casa.</div>
                     </div>                    

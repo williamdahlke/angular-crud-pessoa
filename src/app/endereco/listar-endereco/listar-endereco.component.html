@@ -14,6 +14,7 @@
                     <th>CEP</th>
                     <th>Rua</th>
                     <th>Número</th>
+                    <th>Residencial</th>
                     <th class="text-center">
                         <a [routerLink]="['/enderecos/novo']" href="#" title="Novo" alt="Novo" class="btn btn-x btn-success">
                             <i class="fa fa-plus" aria-hidden="true"></i> Novo
@@ -28,6 +29,7 @@
                     <td>{{endereco.cep}}</td>
                     <td>{{endereco.rua}}</td>
                     <td>{{endereco.numero}}</td>
+                    <td>{{endereco.residencial! ? "Residencial" : "Comercial"}}</td>
                     <td class="text-center" style="width: 300px;">
                         <a [routerLink]="['/enderecos/editar', endereco.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
                             <i class="fa fa-edit" aria-hidden="true"></i> Editar
