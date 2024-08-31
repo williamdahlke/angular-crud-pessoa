@@ -7,6 +7,7 @@ import { CidadeService } from './services/cidade.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared';
     CommonModule,
     RouterModule,
     FormsModule,
-    SharedModule     
+    SharedModule,
+    NgSelectModule     
   ],
   providers: [
     CidadeService
