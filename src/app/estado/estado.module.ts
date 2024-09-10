@@ -8,12 +8,14 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InserirEstadoComponent } from './inserir-estado/inserir-estado.component';
 import { SharedModule } from '../shared';
+import { ModalEstadoComponent } from './modal-estado/modal-estado.component';
 
 @NgModule({
   declarations: [
     ListarEstadoComponent,
     InserirEstadoComponent,
-    EditarEstadoComponent
+    EditarEstadoComponent,
+    ModalEstadoComponent
   ],
   imports: [
     CommonModule,

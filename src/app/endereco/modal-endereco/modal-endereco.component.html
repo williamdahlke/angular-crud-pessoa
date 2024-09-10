@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Endereço</h4>
+    <button type="button" (click)="activeModal.close()" class="btn-close" aria-label="close"></button>
+</div>
+
+<div class="modal-body">
+    <p>Rua: {{endereco.rua}}, {{endereco.numero}}</p>
+    <p *ngIf="endereco.complemento !== undefined">Complemento: {{endereco.complemento}}</p>
+    <p>Bairro: {{endereco.bairro}}</p>
+    <p>CEP: {{endereco.cep}}</p>
+    <p>Cidade: {{endereco.cidade}} / Estado: {{endereco.estado}}</p>
+    <p>{{endereco.residencial ? "Residencial" : "Comercial"}}</p>
+</div>
+
+<div class="modal-footer">
+    <button type="button" (click)="activeModal.close()" class="btn btn-outline-dark" aria-label="close">Fechar</button>
+</div>

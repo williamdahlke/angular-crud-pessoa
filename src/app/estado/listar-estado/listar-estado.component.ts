@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadoService } from '../services/estado.service';
 import { Estado } from '../../shared';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalEstadoComponent } from '../modal-estado/modal-estado.component';
 
 @Component({
   selector: 'app-estado-cidade',
@@ -9,8 +11,8 @@ import { Estado } from '../../shared';
 })
 export class ListarEstadoComponent implements OnInit{
   
-  constructor(private service : EstadoService
-  ){}
+  constructor(private service : EstadoService,
+              private modalService : NgbModal){}
 
   ngOnInit(): void {
     this.estados = this.listarEstados();
@@ -29,5 +31,10 @@ export class ListarEstadoComponent implements OnInit{
       this.service.remover(estado.id!);
       this.estados = this.listarEstados();
     }
+  }
+
+  abrirModalEstado(estado : Estado){
+    const modalRef = this.modalService.open(ModalEstadoComponent);
+    modalRef.componentInstance.estado = estado;
   }
 }

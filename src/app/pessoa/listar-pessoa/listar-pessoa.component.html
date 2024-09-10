@@ -31,7 +31,7 @@
                             <i class="fa fa-eye" aria-hidden="true"></i> Ver
                         </button>
 
-                        <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info" [routerLink]="['/pessoas/editar', pessoa.id]">
+                        <a [routerLink]="['/pessoas/editar', pessoa.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info" style="margin: 1%;">
                             <i class="fa fa-edit" aria-hidden="true"></i> Editar
                         </a>                        
                         <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" style="margin: 1%;"
