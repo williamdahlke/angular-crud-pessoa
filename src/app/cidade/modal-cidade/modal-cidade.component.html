@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Cidade</h4>
+    <button type="button" (click)="activeModal.close()" class="btn btn-close" aria-label="close"></button>
+</div>
+
+<div class="modal-body">
+    <p>Nome: {{cidade.nome}}</p>
+    <p>Estado: {{cidade.estado?.nome}}</p>
+</div>
+
+<div class="modal-footer">
+    <button type="button" (click)="activeModal.close()" class="btn btn-outline-dark" aria-label="close">Fechar</button>
+</div>

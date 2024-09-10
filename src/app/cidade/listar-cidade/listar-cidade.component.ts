@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CidadeService } from '../services/cidade.service';
 import { Cidade } from '../../shared';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalCidadeComponent } from '../modal-cidade/modal-cidade.component';
 
 @Component({
   selector: 'app-listar-cidade',
@@ -9,8 +11,8 @@ import { Cidade } from '../../shared';
 })
 export class ListarCidadeComponent implements OnInit{
   
-  constructor(private service : CidadeService
-  ){}
+  constructor(private service : CidadeService,
+              private modalService : NgbModal){}
 
   ngOnInit(): void {
     this.cidades = this.listarCidades();
@@ -29,5 +31,10 @@ export class ListarCidadeComponent implements OnInit{
       this.service.remover(cidade.id!);
       this.cidades = this.listarCidades();
     }
+  }
+
+  abrirModalCidade(cidade : Cidade){
+    const modalRef = this.modalService.open(ModalCidadeComponent);
+    modalRef.componentInstance.cidade = cidade;
   }
 }
