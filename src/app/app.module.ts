@@ -9,10 +9,14 @@ import { CidadeModule } from './cidade/cidade.module';
 import { EstadoModule } from './estado/estado.module';
 import { SharedModule } from './shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CidadeModule,
     EstadoModule,
     SharedModule,
-    NgbModule
+    NgbModule,
+    AuthModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
