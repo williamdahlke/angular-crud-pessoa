@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inserir e Editar</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 *ngIf="novoUsuario">Novo Usuário</h1>
+        <h1 *ngIf="!novoUsuario">Editar Usuário</h1>
+        <div class="well">
+            <form #formUsuario="ngForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome" 
+                           [(ngModel)]="usuario.nome" #nome="ngModel"
+                           name="nome" minlength="2" required>
+                    <div class="alert alert-danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
+                        <div [hidden]="!nome.errors['required']">Digite o nome da cidade.</div>
+                        <div [hidden]="!nome.errors['minlength']">O nome deve conter ao menos 2 caracteres</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login">Login:</label>
+                    <input type="text" class="form-control" id="login" name="login" 
+                           [(ngModel)]="usuario.login"
+                           #login="ngModel"
+                           required minlength="2">
+                    <div *ngIf="login.errors && (login.dirty || login.touched)" class="alert alert-danger">
+                        <div [hidden]="!login.errors['required']">Digite o login.</div>
+                        <div [hidden]="!login.errors['minlength']">Digite ao menos dois caracteres.</div>
+                    </div>                    
+                </div>
+
+                <div *ngIf="!novoUsuario">
+                    <p>Deixe a senha em branco para não alterá-la</p>                    
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="text" class="form-control" id="senha" name="senha"
+                    [(ngModel)]="usuario.senha" #senha="ngModel">
+                </div>
+
+                <div class="form-group">
+                    <label for="perfil">Perfil:</label><br>
+                    <input type="radio" id="perfil" name="perfil" class="form-check-input" [(ngModel)]="usuario.perfil" #perfil="ngModel" value="ADMIN"> Administrador
+                    <input type="radio" id="perfil" name="perfil" class="form-check-input" [(ngModel)]="usuario.perfil" #perfil="ngModel" value="GERENTE"> Gerente
+                    <input type="radio" id="perfil" name="perfil" class="form-check-input" [(ngModel)]="usuario.perfil" #perfil="ngModel" value="FUNC"> Funcionário
+
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary"
+                            (click)="salvar()"
+                            [disabled]="!formUsuario.form.valid">
+                        <i *ngIf="loading" class="fa fa-save" aria-hidden="true"></i> 
+                        <span *ngIf="loading" clas="spinner-border spinner-border-sm mr-1"></span> Salvar
+                    </button>
+                    <a class="btn btn-secondary" [routerLink]="['/usuarios/listar']" style="margin: 1%;">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                    </a>
+                </div>                
+            </form>
+        </div>
+    </body>    
+</html>

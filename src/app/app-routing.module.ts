@@ -16,6 +16,8 @@ import { Login } from './shared';
 import { LoginComponent } from './auth/login/login.component';
 import { authGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
+import { InserirEditarUsuarioComponent } from './usuario/inserir-editar-usuario/inserir-editar-usuario.component';
 
 const routes: Routes = [
   { path: '',
@@ -105,6 +107,29 @@ const routes: Routes = [
     canActivate: [authGuard],
     data: {
       role: 'ADMIN,GERENTE,FUNC'
+    }
+  },
+  { path: 'usuarios',
+    redirectTo: 'usuarios/listar'},
+  { path: 'usuarios/listar',
+    component:ListarUsuarioComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN'
+    }
+  },
+  { path: 'usuarios/novo',
+    component: InserirEditarUsuarioComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN'
+    }
+  },
+  { path: 'usuarios/editar/:id',
+    component: InserirEditarUsuarioComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN'
     }
   }
 ];
