@@ -21,16 +21,37 @@ export class ListarPessoaComponent implements OnInit{
 
   title : string = "Pessoas";
   pessoas : Pessoa[] = [];
+  mensagem : string = "";
+  mensagem_detalhes : string = "";
 
   listarPessoas() : Pessoa[]{
-    return this.pessoaService.listarTodos();
+    this.pessoaService.listarTodos().subscribe({
+      next: (data : Pessoa[] | null) => {
+        if (data == null){
+          this.pessoas = [];
+        }
+        else{
+          this.pessoas = data;
+        }
+      }, 
+      error: (err) => {
+        this.mensagem = "Erro buscando lista de usuários";
+        this.mensagem_detalhes = `[${err.status}] ${err.message}`
+      }
+    });
+    return this.pessoas;
   }
 
-  remover($event: any, pessoa: Pessoa) : void{
+  remover($event : any, pessoa : Pessoa) : void {
     $event.preventDefault();
-    if (confirm(`Deseja realmente remover a pessoa ${pessoa.nome}?`)){
-      this.pessoaService.remover(pessoa.id!);
-      this.pessoas = this.listarPessoas();
+    if (confirm(`Deseja realmente remover o usuário ${pessoa.nome}?`)){
+      this.pessoaService.remover(pessoa.id!).subscribe({
+        complete: () => {this.listarPessoas();},
+        error: (err) => {
+          this.mensagem = `Erro removendo pessoa ${pessoa.id} - ${pessoa.nome}`;
+          this.mensagem_detalhes = `[${err.status}] ${err.message}`;
+        }
+      });
     }
   }
 
