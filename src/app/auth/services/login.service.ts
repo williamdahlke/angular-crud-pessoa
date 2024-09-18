@@ -13,7 +13,8 @@ export class LoginService {
   BASE_URL = "http://localhost:3000/usuarios";
 
   httpOptions = {
-    headers: new HttpHeaders({
+    //observe: "response" as "response",
+    headers: new HttpHeaders({      
       'Content-Type': 'application/json'
     })
   };

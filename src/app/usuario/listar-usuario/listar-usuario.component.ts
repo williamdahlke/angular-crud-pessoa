@@ -12,6 +12,8 @@ import { ModalUsuarioComponent } from '../modal-usuario/modal-usuario.component'
 export class ListarUsuarioComponent implements OnInit{
 
   usuarios : Usuario[] = [];
+  mensagem : string = "";
+  mensagem_detalhes : string = ""
 
   constructor(private usuarioService : UsuarioService,
               private modalService : NgbModal){}
@@ -22,13 +24,17 @@ export class ListarUsuarioComponent implements OnInit{
 
   listarTodos() : Usuario[]{
     this.usuarioService.listarTodos().subscribe({
-      next: (data : Usuario[]) => {
+      next: (data : Usuario[] | null) => {
         if (data == null){
           this.usuarios = [];
         }
         else{
           this.usuarios = data;
         }
+      }, 
+      error: (err) => {
+        this.mensagem = "Erro buscando lista de usuários";
+        this.mensagem_detalhes = `[${err.status}] ${err.message}`
       }
     });
     return this.usuarios;
@@ -38,7 +44,11 @@ export class ListarUsuarioComponent implements OnInit{
     $event.preventDefault();
     if (confirm(`Deseja realmente remover o usuário ${usuario.nome}?`)){
       this.usuarioService.remover(usuario.id!).subscribe({
-        complete: () => {this.listarTodos();}
+        complete: () => {this.listarTodos();},
+        error: (err) => {
+          this.mensagem = `Erro removendo usuário ${usuario.id} - ${usuario.nome}`;
+          this.mensagem_detalhes = `[${err.status}] ${err.message}`;
+        }
       });
     }
   }
