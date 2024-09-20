@@ -25,10 +25,19 @@ export class PessoaService {
     return this.httpClient.get<Pessoa[]>(
       this.BASE_URL, this.httpOptions).pipe(
         map((resp: HttpResponse<Pessoa[]>) => {
-          if (resp.status != 200) {
+          if (resp.status != 200) {            
             return [];
           } else {
-            return resp.body;
+            let lista : Pessoa[] = [];
+            if (resp.body && resp.body.length>0){
+              let pes : Pessoa = new Pessoa();
+              resp.body.forEach(p=> {
+                pes = new Pessoa(p.id, p.nome, p.idade, p.dataNascimento, p.motorista);
+                pes.dateFromRest();
+                lista.push();
+              });
+            }
+            return lista;
           }
         }
         ), catchError((e, c) => {
@@ -48,7 +57,9 @@ export class PessoaService {
           if (resp.status != 200) {
             return null;
           } else {
-            return resp.body;
+            let pes : Pessoa = new Pessoa(resp.body?.id, resp.body?.nome, resp.body?.idade, resp.body?.dataNascimento, resp.body?.motorista);
+            pes.dateFromRest();
+            return pes;
           }
         }), catchError((e, c) => {
           if (e.status == 404) {
@@ -60,14 +71,17 @@ export class PessoaService {
       )
   }
 
-  inserir(usuario: Pessoa): Observable<Pessoa | null> {
+  inserir(pessoa: Pessoa): Observable<Pessoa | null> {
+    pessoa.dateToRest();
     return this.httpClient.post<Pessoa>(this.BASE_URL,
-      JSON.stringify(usuario), this.httpOptions).pipe(
+      JSON.stringify(pessoa), this.httpOptions).pipe(
         map((resp: HttpResponse<Pessoa>) => {
           if (resp.status != 201) {
             return null;
           } else {
-            return resp.body;
+            let pes : Pessoa = new Pessoa(resp.body?.id, resp.body?.nome, resp.body?.idade, resp.body?.dataNascimento, resp.body?.motorista);
+            pes.dateFromRest();
+            return pes;
           }
         }), catchError((e, c) => {
           return throwError(() => e);
@@ -81,7 +95,9 @@ export class PessoaService {
         if (resp.status != 200) {
           return null;
         } else {
-          return resp.body;
+          let pes : Pessoa = new Pessoa(resp.body?.id, resp.body?.nome, resp.body?.idade, resp.body?.dataNascimento, resp.body?.motorista);
+          pes.dateFromRest();
+          return pes;          
         }
       }), catchError((e, c) => {
         return throwError(() => e);
@@ -89,14 +105,17 @@ export class PessoaService {
     )
   }
 
-  alterar(usuario: Pessoa): Observable<Pessoa | null> {
-    return this.httpClient.put<Pessoa>(this.BASE_URL + "/" + usuario.id, JSON.stringify(usuario), 
+  alterar(pessoa: Pessoa): Observable<Pessoa | null> {
+    pessoa.dateToRest();
+    return this.httpClient.put<Pessoa>(this.BASE_URL + "/" + pessoa.id, JSON.stringify(pessoa), 
     this.httpOptions).pipe(
         map((resp: HttpResponse<Pessoa>) => {
           if (resp.status != 200) {
             return null;
           } else {
-            return resp.body;
+            let pes : Pessoa = new Pessoa(resp.body?.id, resp.body?.nome, resp.body?.idade, resp.body?.dataNascimento, resp.body?.motorista);
+            pes.dateFromRest();
+            return pes;
           }
         }), catchError((e, c) => {
           return throwError(() => e);
