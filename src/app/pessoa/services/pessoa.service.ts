@@ -29,12 +29,12 @@ export class PessoaService {
             return [];
           } else {
             let lista : Pessoa[] = [];
-            if (resp.body && resp.body.length>0){
+            if (resp.body && resp.body.length>0){              
               let pes : Pessoa = new Pessoa();
               resp.body.forEach(p=> {
                 pes = new Pessoa(p.id, p.nome, p.idade, p.dataNascimento, p.motorista);
-                pes.dateFromRest();
-                lista.push();
+                pes.dateFromRest();                
+                lista.push(pes);
               });
             }
             return lista;

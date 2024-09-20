@@ -21,7 +21,7 @@ export class InserirPessoaComponent {
   inserir() : void{
     if (this.formPessoa.form.valid){
       this.pessoaService.inserir(this.pessoa).subscribe({
-        next: (usuario) => {
+        next: (pessoa) => {          
           this.router.navigate(["/pessoas"]);
         },
         error: (err) => {
